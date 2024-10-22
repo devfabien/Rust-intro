@@ -74,3 +74,51 @@ fn main() {
    - Constants require explicit type annotations.
 
 These differences make constants useful for values that are known at compile time and should not change throughout the execution of the program.
+## Shadowing in Rust
+
+Shadowing allows you to declare a new variable with the same name as a previous variable. The new variable shadows the previous one, and you can reuse the same name without mutability. This can be useful for transforming a value while keeping the variable name.
+
+Here's an example of shadowing in Rust:
+
+```rust
+fn main() {
+    let x = 5;
+
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value of x is: {x}");
+}
+```
+
+In this example, the variable `x` is shadowed twice. The final value of `x` is 12.
+
+### Differences Between Shadowing and Mutability
+
+1. **Rebinding**:
+   - Shadowing allows you to rebind a variable name to a new value.
+   - Mutability allows you to change the value of a variable without rebinding.
+
+2. **Type Changes**:
+   - Shadowing allows the variable to change types.
+   - Mutability does not allow type changes.
+
+3. **Scope**:
+   - Shadowed variables are scoped to the block they are declared in.
+   - Mutable variables retain their scope.
+
+Here's an example demonstrating type change with shadowing:
+
+```rust
+fn main() {
+  let spaces = "   "; // spaces is a string
+  let spaces = spaces.len(); // spaces is now an integer
+  println!("The number of spaces is: {spaces}");
+}
+```
+
+In this example, the variable `spaces` is first a string and then shadowed to become an integer.
