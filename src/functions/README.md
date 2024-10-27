@@ -167,3 +167,96 @@ assert_eq!(result, 120);
 let error_result = factorial(-3);
 assert_eq!(error_result, -1);
 ```
+## Function Return Values
+
+In Rust, functions can return values using the `->` syntax followed by the return type. The return value is the last expression in the function body, and it does not require a semicolon.
+
+In Rust, the return value of the function is synonymous with the value of the final expression in the block of the body of a function. You can return early from a function by using the return keyword and specifying a value, but most functions return the last expression implicitly
+
+### Example: Returning a Value
+
+This function returns the square of an integer.
+
+```rust
+fn square(x: i32) -> i32 {
+    x * x
+}
+```
+
+#### Arguments
+
+- `x` - An integer to be squared.
+
+#### Returns
+
+- An integer representing the square of `x`.
+
+#### Examples
+
+```rust
+let result = square(4);
+assert_eq!(result, 16);
+```
+
+### Example: Returning Multiple Values
+
+Rust supports returning multiple values using tuples.
+
+```rust
+fn min_max(a: i32, b: i32) -> (i32, i32) {
+    if a < b {
+        (a, b)
+    } else {
+        (b, a)
+    }
+}
+```
+
+#### Arguments
+
+- `a` - An integer.
+- `b` - Another integer.
+
+#### Returns
+
+- A tuple containing the smaller and larger of the two integers.
+
+#### Examples
+
+```rust
+let (min, max) = min_max(3, 7);
+assert_eq!(min, 3);
+assert_eq!(max, 7);
+```
+
+### Example: Early Return
+
+You can return early from a function using the `return` keyword.
+
+```rust
+fn divide(a: i32, b: i32) -> Option<i32> {
+    if b == 0 {
+        return None; // Early return for division by zero
+    }
+    Some(a / b)
+}
+```
+
+#### Arguments
+
+- `a` - The dividend.
+- `b` - The divisor.
+
+#### Returns
+
+- `Some` containing the quotient if `b` is not zero, otherwise `None`.
+
+#### Examples
+
+```rust
+let result = divide(10, 2);
+assert_eq!(result, Some(5));
+
+let error_result = divide(10, 0);
+assert_eq!(error_result, None);
+```
