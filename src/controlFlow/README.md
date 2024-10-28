@@ -95,6 +95,46 @@ loop {
 println!("The loop stopped at counter = {}", counter);
 ```
 
+### Returning Values from Loops
+
+In Rust, you can return values from loops using the `break` keyword with a value.
+
+```rust
+let mut counter = 0;
+
+let result = loop {
+    counter += 1;
+
+    if counter == 10 {
+        break counter * 2;
+    }
+};
+
+println!("The result is {result}");
+```
+
+In this example, the loop increments the `counter` variable until it reaches 10. When the condition is met, the loop breaks and returns `counter * 2`, which is then assigned to the `result` variable.
+
+This feature is particularly useful when you need to perform a repetitive task until a certain condition is met and then use the result of that task. For example, you might use it to search for an item in a collection and return the index of the item once it's found.
+
+```rust
+let numbers = [1, 2, 3, 4, 5];
+let target = 3;
+let mut index = 0;
+
+let position = loop {
+    if numbers[index] == target {
+        break index;
+    }
+
+    index += 1;
+};
+
+println!("The position of the target is {}", position);
+```
+
+In this example, the loop iterates through the `numbers` array until it finds the `target` value. When the target is found, the loop breaks and returns the index of the target, which is then assigned to the `position` variable.
+
 #### `continue`
 
 The `continue` keyword is used to skip the rest of the current iteration and move to the next iteration of the loop.
