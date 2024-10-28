@@ -74,6 +74,42 @@ for element in a.iter() {
 }
 ```
 
+
+### `break` and `continue`
+
+#### `break`
+
+The `break` keyword is used to exit a loop immediately.
+
+```rust
+let mut counter = 0;
+
+loop {
+    counter += 1;
+
+    if counter == 5 {
+        break;
+    }
+}
+
+println!("The loop stopped at counter = {}", counter);
+```
+
+#### `continue`
+
+The `continue` keyword is used to skip the rest of the current iteration and move to the next iteration of the loop.
+
+```rust
+for number in 1..10 {
+    if number % 2 == 0 {
+        continue;
+    }
+
+    println!("Odd number: {}", number);
+}
+```
+
+
 ## `match` Expressions
 
 The `match` expression is a powerful control flow operator that allows you to compare a value against a series of patterns.
