@@ -135,6 +135,9 @@ println!("The position of the target is {position}");
 
 In this example, the loop iterates through the `numbers` array until it finds the `target` value. When the target is found, the loop breaks and returns the index of the target, which is then assigned to the `position` variable.
 
+You can also `return` from inside a loop. While `break` only exits the current loop, `return` always exits the current function.
+
+
 #### `continue`
 
 The `continue` keyword is used to skip the rest of the current iteration and move to the next iteration of the loop.
