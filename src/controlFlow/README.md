@@ -70,7 +70,7 @@ The `for` loop is used to iterate over a collection.
 let a = [10, 20, 30, 40, 50];
 
 for element in a.iter() {
-    println!("The value is: {}", element);
+    println!("The value is: {element}");
 }
 ```
 
@@ -92,7 +92,7 @@ loop {
     }
 }
 
-println!("The loop stopped at counter = {}", counter);
+println!("The loop stopped at counter = {counter}");
 ```
 
 ### Returning Values from Loops
@@ -130,7 +130,7 @@ let position = loop {
     index += 1;
 };
 
-println!("The position of the target is {}", position);
+println!("The position of the target is {position}");
 ```
 
 In this example, the loop iterates through the `numbers` array until it finds the `target` value. When the target is found, the loop breaks and returns the index of the target, which is then assigned to the `position` variable.
@@ -145,7 +145,7 @@ for number in 1..10 {
         continue;
     }
 
-    println!("Odd number: {}", number);
+    println!("Odd number: {number}");
 }
 ```
 
