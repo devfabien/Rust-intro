@@ -1,6 +1,9 @@
 # Rust-intro
 # Introduction to Rust
-
+<div align="center">
+  <img src="https://www.pngkey.com/png/detail/149-1498062_images-rust-lang-ar21-rust-programming-language-logo.png" alt="Rust Logo" width="200"/>
+  <img src="https://w7.pngwing.com/pngs/114/914/png-transparent-rust-programming-language-logo-machine-learning-haskell-crab-animals-cartoon-crab.png" alt="Rust Logo" width="156"/>
+</div>
 Rust is a systems programming language focused on safety, speed, and concurrency. It achieves memory safety without needing a garbage collector, making it a popular choice for performance-critical applications.
 
 ## Rust Variables
