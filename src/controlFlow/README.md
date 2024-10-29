@@ -152,6 +152,25 @@ for number in 1..10 {
 }
 ```
 
+### Loop Labels to Disambiguate Between Multiple Loops
+
+Loop labels are useful when you have nested loops and you need to control which loop to break or continue.
+
+#### Example
+
+```rust
+'outer: for i in 0..5 {
+    println!("Outer loop iteration: {}", i);
+    'inner: for j in 0..5 {
+        println!("  Inner loop iteration: {}", j);
+        if j == 2 {
+            break 'outer; // Breaks the outer loop
+        }
+    }
+}
+```
+
+In this example, the `break 'outer;` statement breaks the outer loop when `j` equals 2. Without the loop label, the `break` statement would only break the inner loop.
 
 ## `match` Expressions
 
