@@ -55,6 +55,8 @@ fn change(some_string: &mut String) {
     some_string.push_str(", world");
 }
 ```
+Mutable references have one big restriction: if you have a mutable reference to a value, you can have no other references to that value.
+
 
 ### Slices
 ```rust
