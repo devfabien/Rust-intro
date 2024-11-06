@@ -13,3 +13,8 @@ fn main() {
 // let len = s.len();
 // let slice = &s[3..len];
 // let slice = &s[3..];
+
+// You can also use .. to include all values in a slice. These are equal:
+// let len = s.len();
+// let slice = &s[0..len];
+// let slice = &s[..];
