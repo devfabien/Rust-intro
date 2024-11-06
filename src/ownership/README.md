@@ -57,6 +57,22 @@ fn change(some_string: &mut String) {
 ```
 Mutable references have one big restriction: if you have a mutable reference to a value, you can have no other references to that value.
 
+### Dangling References
+Dangling references occur when a reference points to a memory location that has been freed. Rust prevents dangling references with its ownership system.
+
+```rust
+fn main() {
+    let reference_to_nothing = dangle();
+    println!("{}", reference_to_nothing);
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+    &s // This reference will be dangling
+} // s goes out of scope and is dropped here
+```
+
+In the example above, the function `dangle` returns a reference to a `String`, but the `String` is dropped when the function ends, leaving a dangling reference. Rust's borrow checker prevents this code from compiling, ensuring memory safety.
 
 ### Slices
 ```rust
