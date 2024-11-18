@@ -59,6 +59,29 @@ let black = Color(0, 0, 0);
 
 ## Unit-Like Structs
 
+ Unit-like structs are structs that do not have any fields. They are useful when you need to implement a trait on some type but don't need to store any data.
+ 
+ These structs are similar to the unit type `()` in Rust, hence the name "unit-like".
+ They can be used to create types that have no data but still need to implement certain traits or behaviors.
+ 
+ Example:
+ ```rust
+ struct AlwaysEqual;
+ 
+ impl PartialEq for AlwaysEqual {
+     fn eq(&self, _: &Self) -> bool {
+         true
+     }
+ }
+ 
+ impl Eq for AlwaysEqual {}
+ 
+ let a = AlwaysEqual;
+ let b = AlwaysEqual;
+ assert_eq!(a, b);
+ ```
+ In this example, `AlwaysEqual` is a unit-like struct that implements the `PartialEq` and `Eq` traits, always returning `true` for equality checks.
+
 Unit-like structs are useful when you need to implement a trait on some type but don't need to store any data:
 
 ```rust
