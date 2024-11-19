@@ -64,29 +64,52 @@ let black = Color(0, 0, 0);
  These structs are similar to the unit type `()` in Rust, hence the name "unit-like".
  They can be used to create types that have no data but still need to implement certain traits or behaviors.
  
- Example:
- ```rust
- struct AlwaysEqual;
- 
- impl PartialEq for AlwaysEqual {
-     fn eq(&self, _: &Self) -> bool {
-         true
-     }
- }
- 
- impl Eq for AlwaysEqual {}
- 
- let a = AlwaysEqual;
- let b = AlwaysEqual;
- assert_eq!(a, b);
- ```
- In this example, `AlwaysEqual` is a unit-like struct that implements the `PartialEq` and `Eq` traits, always returning `true` for equality checks.
-
 Unit-like structs are useful when you need to implement a trait on some type but don't need to store any data:
 
 ```rust
 struct AlwaysEqual;
 ```
+
+## Printing Structs
+
+To print a struct to the console, you can use the `println!` macro with the `{:?}` or `{:#?}` format specifiers. However, you need to derive the `Debug` trait for your struct to enable this functionality.
+
+### Deriving the Debug Trait
+
+Add `#[derive(Debug)]` above your struct definition to automatically implement the `Debug` trait:
+
+```rust
+#[derive(Debug)]
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+```
+
+### Printing the Struct
+
+Now you can print the struct using the `println!` macro:
+
+```rust
+let user1 = User {
+    username: String::from("exampleuser"),
+    email: String::from("user@example.com"),
+    sign_in_count: 1,
+    active: true,
+};
+
+println!("{:?}", user1);
+```
+
+For a more readable, pretty-printed output, use `{:#?}`:
+
+```rust
+println!("{:#?}", user1);
+```
+
+This will output the struct in a more human-readable format.
 
 ## Methods on Structs
 
